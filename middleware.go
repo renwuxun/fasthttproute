@@ -8,10 +8,10 @@ import (
 	"skipmeal/Helper"
 )
 
-type Middelware func(handler fasthttp.RequestHandler) fasthttp.RequestHandler
+type Middleware func(handler fasthttp.RequestHandler) fasthttp.RequestHandler
 
-func Chain(handler fasthttp.RequestHandler, middelwares ...Middelware) fasthttp.RequestHandler {
-	for _, m := range middelwares {
+func Chain(handler fasthttp.RequestHandler, middlewares ...Middleware) fasthttp.RequestHandler {
+	for _, m := range middlewares {
 		handler = m(handler)
 	}
 	return handler
