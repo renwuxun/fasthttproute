@@ -5,7 +5,6 @@ import (
 	"crypto/md5"
 	"encoding/hex"
 	"github.com/valyala/fasthttp"
-	"skipmeal/Helper"
 )
 
 type Middleware func(handler fasthttp.RequestHandler) fasthttp.RequestHandler
@@ -29,6 +28,6 @@ func Etag(handler fasthttp.RequestHandler) fasthttp.RequestHandler {
 			ctx.Response.SetBodyString("")
 			return
 		}
-		ctx.Response.Header.Set("Etag", Helper.Bytes2str(strEtag[:]))
+		ctx.Response.Header.Set("Etag", Bytes2str(strEtag[:]))
 	}
 }
