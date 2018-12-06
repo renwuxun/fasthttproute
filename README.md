@@ -4,10 +4,10 @@
 #### 使用
 ```go
 fasthttproute.Handle("/hello", func(ctx *fasthttp.RequestCtx) {
-   ctx.SetBodyString("hello!")
+   ctx.SetBodyString("hi,fasthttproute!")
 })
-compress := false
-fasthttproute.ServeFasthttp(":80", compress, fasthttproute.DefaultHandler)
+
+fasthttproute.ServeFasthttp(":80", fasthttproute.DefaultHandler)
 ```
 #### LICENSE
 MIT License

@@ -18,10 +18,7 @@ func HandleNotFound(handler fasthttp.RequestHandler) {
 	notFoundHandler = handler
 }
 
-func ServeFasthttp(addr string, compress bool, handler fasthttp.RequestHandler) {
-	if compress {
-		handler = fasthttp.CompressHandler(handler)
-	}
+func ServeFasthttp(addr string, handler fasthttp.RequestHandler) {
 	if err := fasthttp.ListenAndServe(addr, handler); err != nil {
 		log.Fatalf("Error in ListenAndServe: %s", err)
 	}
